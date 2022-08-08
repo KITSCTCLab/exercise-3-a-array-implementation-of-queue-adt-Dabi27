@@ -71,7 +71,7 @@ class Solution:
             character: A character that will be enqueued to queue.
         """
         if not self.is_queue_full():
-            if  self.front == -1:
+            if self.front == -1:
                 self.front = 0
             self.rear += 1
             self.queue.append(character)
@@ -113,3 +113,20 @@ for index in range(length_of_text):
     solution.enqueue_character(text[index])
 
 is_palindrome = True
+'''
+pop the top character from stack
+dequeue the first character from queue
+compare both characters
+If the comparison fails, set is_palindrome as False.
+T
+'''
+for index in range(length_of_text):
+    if solution.pop_character() != solution.dequeue_character():
+        is_palindrome = False
+
+
+# finally print whether string text is palindrome or not.
+if is_palindrome:
+    print("The word, " + text + ", is a palindrome.")
+else:
+    print("The word, " + text + ", is not a palindrome.")
